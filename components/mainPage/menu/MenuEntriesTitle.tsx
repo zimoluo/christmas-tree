@@ -1,6 +1,6 @@
 import DisplayFavicon from "@/components/assets/DisplayFavicon";
 
-export default function MenuEntriesUser() {
+export default function MenuEntriesTitle() {
   return (
     <div className="flex items-center w-full">
       <div className="p-1 h-12 md:h-16 aspect-square">
