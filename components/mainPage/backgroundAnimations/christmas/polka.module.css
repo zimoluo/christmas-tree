@@ -1,6 +1,6 @@
 .polka {
-  --gradient-size: max(8vh, 8vw);
-  --gradient-spacing: max(4vh, 4vw);
+  --gradient-size: max(8svh, 8vw);
+  --gradient-spacing: max(4svh, 4vw);
   --gradient1-color: rgba(255, 58, 64, 0.4);
   --gradient2-color: rgba(93, 184, 78, 0.25);
 

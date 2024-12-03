@@ -1,5 +1,5 @@
 .legacyPosition {
-  bottom: clamp(1.5rem, 15vh, 4rem);
+  bottom: clamp(1.5rem, 15svh, 4rem);
 }
 
 .legacyLength {

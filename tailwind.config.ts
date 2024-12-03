@@ -81,6 +81,15 @@ const config: Config = {
         "0.4": "0.4px",
         "0.6": "0.6px",
       },
+      height: {
+        screen: "100svh",
+      },
+      minHeight: {
+        screen: "100svh",
+      },
+      maxHeight: {
+        screen: "100svh",
+      },
     },
   },
   plugins: [

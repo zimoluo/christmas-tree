@@ -1,6 +1,6 @@
 .sprite {
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
   image-rendering: pixelated;
   background-size: auto 100%;
   background-repeat: repeat-x;
@@ -62,6 +62,6 @@
     background-position: 0 0;
   }
   to {
-    background-position: 177.778vh 0;
+    background-position: 177.778svh 0;
   }
 }

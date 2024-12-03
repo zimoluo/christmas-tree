@@ -1,6 +1,6 @@
 .sizing {
-  height: clamp(1rem, 85vh, 200vw);
-  width: clamp(1rem, 90vw, 80vh);
+  height: clamp(1rem, 85svh, 200vw);
+  width: clamp(1rem, 90vw, 80svh);
 }
 
 .icon {
