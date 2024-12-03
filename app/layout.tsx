@@ -11,7 +11,6 @@ import MainPageFrame from "@/components/mainPage/MainPageFrame";
 import MainPageElements from "@/components/mainPage/MainPageElements";
 import { SettingsProvider } from "@/components/contexts/SettingsContext";
 import MainPageEffect from "@/components/mainPage/MainPageEffect";
-import { baseUrl } from "@/lib/constants/navigationFinder";
 import { ToastProvider } from "@/components/contexts/ToastContext";
 import { defaultRobotsMeta } from "@/lib/siteMetadata";
 import ThemeDataInitializer from "@/components/theme/util/ThemeDataInitializer";

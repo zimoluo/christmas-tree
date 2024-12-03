@@ -24,15 +24,7 @@ export default function MenuEntriesInfo() {
         >
           GNU&nbsp;AGPL&nbsp;3.0
         </Link>
-        .{" "}
-        <Link
-          target="_blank"
-          href="https://www.zimoluo.me/management/terms-of-use"
-          className="hover:underline underline-offset-2"
-        >
-          Terms&nbsp;of&nbsp;Use
-        </Link>{" "}
-        apply.
+        .
       </p>
     </div>
   );
