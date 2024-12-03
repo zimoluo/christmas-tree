@@ -6,7 +6,7 @@ import homeConfig from "../config/home";
 import moriConfig from "../config/mori";
 import penumbraConfig from "../config/penumbra";
 import rainbowConfig from "../config/rainbow";
-import vitreousConfig from "../config/vitreous";
+import oasisConfig from "../config/oasis";
 import plainGrayConfig from "../config/plainGray";
 import perpetuityConfig from "../config/perpetuity";
 import duskConfig from "../config/dusk";
@@ -19,7 +19,7 @@ export const themeKeyMap: Record<ThemeKey, ThemeDataConfig> = {
   christmas: christmasConfig,
   cherry: cherryConfig,
   mori: moriConfig,
-  vitreous: vitreousConfig,
+  oasis: oasisConfig,
   penumbra: penumbraConfig,
   plainGray: plainGrayConfig,
   perpetuity: perpetuityConfig,

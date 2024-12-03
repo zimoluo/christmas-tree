@@ -4,7 +4,7 @@ type ThemeKey =
   | "about"
   | "perpetuity"
   | "glitter"
-  | "vitreous"
+  | "oasis"
   | "cherry"
   | "mori"
   | "home"
