@@ -4,9 +4,9 @@ const environment = "production";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Zimo Web",
-    short_name: "Zimo Web",
-    description: "The personal website of Zimo.",
+    name: "Christmas Tree",
+    short_name: "Christmas Tree",
+    description: "Christmas Tree, derived from Zimo Web.",
     start_url: "/",
     display: "standalone",
     icons: [

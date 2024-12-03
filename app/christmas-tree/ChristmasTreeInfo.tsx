@@ -33,10 +33,10 @@ function ChristmasTreeInfoWindow() {
       <h1 className="font-fancy text-2xl mb-6">Christmas Tree</h1>
       <div className="overflow-y-auto flex-grow space-y-4 text-lg">
         <p>
-          Christmas Tree is Zimo Web{"\u2019"}s holiday special, where you can
-          share a message on the festive tree. Your message can be about
-          anything hopeful, cheerful, or meaningful, but please avoid posting
-          anything sensitive, harmful, political, inappropriate, etc.
+          Christmas Tree is a holiday special I made, where you can share a
+          message on the festive tree. Your message can be about anything
+          hopeful, cheerful, or meaningful, but please avoid posting anything
+          sensitive, harmful, political, inappropriate, etc.
         </p>
         <p>
           To add a message, choose your favorite icon, drag it to your desired

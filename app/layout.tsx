@@ -52,18 +52,9 @@ const serifFont = Lora({
 const environment = "production";
 
 export const metadata: Metadata = {
-  title: "Zimo Web",
-  description: "The personal website of Zimo.",
-  metadataBase: new URL("https://www.zimoluo.me/"),
+  metadataBase: new URL("https://tree.zimoluo.me/"),
   robots: defaultRobotsMeta,
   authors: [{ name: "Zimo", url: "https://github.com/zimoluo" }],
-  openGraph: {
-    type: "website",
-    url: baseUrl,
-    title: "Zimo Web",
-    description: "The personal website of Zimo.",
-    siteName: "Zimo Web",
-  },
   icons: [
     {
       rel: "icon",
@@ -96,7 +87,6 @@ export const metadata: Metadata = {
       sizes: "180x180",
     },
   ],
-  keywords: "Zimo Web, Zimo Luo, Zimo, Personal Website",
 };
 
 export default function RootLayout({
