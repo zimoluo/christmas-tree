@@ -39,7 +39,7 @@ const SettingsContext = createContext<
         doSync?: boolean
       ) => void;
       updatePageTheme: (
-        themeKey: ThemeKey | ThemeDataConfig,
+        themeKey: ThemeKey,
         page: NavigationKey,
         doSync?: boolean
       ) => void;
@@ -85,7 +85,7 @@ export const SettingsProvider = ({
   };
 
   const updatePageTheme = (
-    themeKey: ThemeKey | ThemeDataConfig,
+    themeKey: ThemeKey,
     page: NavigationKey,
     doSync: boolean = true
   ) => {
