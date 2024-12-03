@@ -1,15 +1,7 @@
-import {
-  ChangeEvent,
-  RefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { getNavigation } from "./constants/navigationFinder";
-import { useSettings } from "@/components/contexts/SettingsContext";
 
 export function useNavigation(): NavigationKey {
   const pathname = usePathname();

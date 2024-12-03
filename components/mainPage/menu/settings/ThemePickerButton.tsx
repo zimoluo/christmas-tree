@@ -4,7 +4,6 @@ import { useNavigation } from "@/lib/helperHooks";
 import themePickerStyle from "./settings-theme-picker.module.css";
 import { useSettings } from "@/components/contexts/SettingsContext";
 import Image from "next/image";
-import { themeKeyMap } from "@/components/theme/util/themeKeyMap";
 
 interface Props {
   theme: ThemeKey;
