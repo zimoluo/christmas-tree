@@ -49,7 +49,7 @@ const serifFont = Lora({
   display: "swap",
 });
 
-const environment = (process.env.VERCEL_ENV ?? "development").toLowerCase();
+const environment = "production";
 
 export const metadata: Metadata = {
   title: "Zimo Web",

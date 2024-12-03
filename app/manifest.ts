@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const environment = (process.env.VERCEL_ENV ?? "development").toLowerCase();
+const environment = "production";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
