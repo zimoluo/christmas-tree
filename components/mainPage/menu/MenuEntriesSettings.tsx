@@ -1,53 +1,16 @@
 "use client";
 
-import { Fragment, ReactNode, useCallback } from "react";
+import { Fragment, ReactNode } from "react";
 import { useSettings } from "@/components/contexts/SettingsContext";
-import SettingsFlip from "./settings/SettingsFlip";
 import SettingsSlider from "./settings/SettingsSlider";
 import menuStyle from "./menu.module.css";
 import { useTheme } from "@/components/contexts/ThemeContext";
 import SettingsThemePicker from "./settings/SettingsThemePicker";
 import { useNavigation } from "@/lib/helperHooks";
-import NotificationStylePicker from "./settings/NotificationStylePicker";
-
-const securityCommentShutDown =
-  process.env.NEXT_PUBLIC_ZIMO_WEB_COMMENT_SHUTDOWN === "true";
 
 const settingsNameMap: { [key in keyof Partial<SettingsState>]: string } = {
-  syncSettings: "Sync data",
   backgroundRichness: "Background richness",
-  navigationBar: "Navigation bar",
-  disableCenterPainting: "Disable center art",
-  disableComments: "Disable comments",
-  disableGestures: "Disable gestures",
-  disableSerifFont: "Disable serif font",
-  disableEntryPopUp: "Disable entry pop-up",
-  enableGallery: "Gallery mode",
-  disableSoundEffect: "Disable sound effect",
-  instantSearchResult: "Show search results instantly",
-  disableTableOfContents: "Disable table of contents",
   pageTheme: "Theme preset",
-  notificationStyle: "Notification style",
-  floatingCodeSpeed: "Floating code rate",
-  flyingBalloonRate: "Birthday balloon rate",
-  goldSphereAnimationIntensity: "Spinning intensity",
-  customThemeData: "Theme profile",
-  expandThemeMakerWindow: "Expand Theme Maker to fullscreen",
-  optimizeProfileExport: "Optimize profile export",
-  allowExtendedGradientStopsRange: "Allow extended gradient",
-  enableColorInterpolationMethod: "Enable color interpolation method",
-  hideColorLookupPanel: "Hide color lookup panel",
-  randomizeThemeOnEveryVisit: "Randomize themes on every visit",
-  windowLimit: "Number of windows",
-  calculatorButtonHasBorder: "Enable calculator button border",
-  disableWindows: "Disable windows",
-  disableWindowSnapping: "Disable window snapping",
-  disableSpecialTheme: "Disable special theme",
-  disableWindowSaving: "Disable window saving",
-  toastBannerLimit: "Number of banners for wide screen",
-  alwaysEnableFireworks: "Always enable fireworks effect",
-  windowResizeBehavior: "Window resizing behavior",
-  disableWindowSnapToViewportBorder: "Disable snap to screen border",
 };
 
 interface SettingsPanelEntry {
@@ -57,7 +20,6 @@ interface SettingsPanelEntry {
   component?: ReactNode;
   values?: string[] | number[];
   captions?: string[];
-  flipAppearance?: SettingsFlipAppearance;
 }
 
 const entryDivider = (
@@ -82,10 +44,6 @@ export default function MenuEntriesSettings({
     entries: SettingsPanelEntry[];
   }[] = [
     {
-      title: "Account",
-      entries: [{ entry: "syncSettings", type: "flip" }],
-    },
-    {
       title: "Theme",
       entries: [
         {
@@ -93,19 +51,11 @@ export default function MenuEntriesSettings({
           type: "special",
           component: (
             <div className="md:flex-grow my-5 md:my-2">
-              <div className="relative bg-light rounded-xl bg-opacity-40 border-0.8 border-opacity-40 border-primary">
-                <div className="relative overflow-y-auto py-4 px-4 md:px-2.5 rounded-xl">
-                  <div
-                    className={`${menuStyle.pickerScrollContainer} rounded-xl`}
-                  >
-                    <SettingsThemePicker />
-                    <div
-                      className="h-4 select-none pointer-events-none"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
-              </div>
+              <SettingsThemePicker />
+              <div
+                className="h-4 select-none pointer-events-none"
+                aria-hidden="true"
+              />
             </div>
           ),
         },
@@ -114,214 +64,6 @@ export default function MenuEntriesSettings({
           type: "slider",
           values: ["minimal", "reduced", "rich"],
           captions: ["Minimal", "Reduced", "Rich"],
-        },
-        {
-          entry: "disableSpecialTheme",
-          type: "flip",
-        },
-        {
-          entry: "randomizeThemeOnEveryVisit",
-          type: "flip",
-        },
-        {
-          entry: "disableCenterPainting",
-          type: "flip",
-          condition: [{ value: "animationKey", match: "blog" }],
-        },
-        {
-          entry: "disableSoundEffect",
-          type: "flip",
-          condition: [{ value: "animationKey", match: "halloween" }],
-          flipAppearance: "halloween",
-        },
-        {
-          entry: "alwaysEnableFireworks",
-          type: "flip",
-          condition: [{ value: "animationKey", match: "perpetuity" }],
-        },
-        {
-          entry: "floatingCodeSpeed",
-          type: "slider",
-          values: [6000, 2800, 1800, 800, 40],
-          captions: ["*yawn*", "Slack", "Normal", "Hustle", "*yeet*"],
-          condition: [{ value: "animationKey", match: "projects" }],
-        },
-        {
-          entry: "flyingBalloonRate",
-          type: "slider",
-          values: [3000, 1600, 500, 50],
-          captions: ["Steady", "Normal", "Rave", "*yeet*"],
-          condition: [{ value: "animationKey", match: "birthday" }],
-        },
-        {
-          entry: "goldSphereAnimationIntensity",
-          type: "slider",
-          values: [20, 60, 100, 150, 800],
-          captions: ["Gentle", "Steady", "Dynamic", "Vibrant", "Blazing"],
-          condition: [{ value: "animationKey", match: "gold" }],
-        },
-      ],
-    },
-    {
-      title: "Interface",
-      entries: [
-        {
-          entry: "navigationBar",
-          type: "slider",
-          values: ["disabled", "always", "flexible"],
-          captions: ["Disabled", "Always-on", "Flexible"],
-        },
-        {
-          entry: "windowLimit",
-          type: "slider",
-          values: [1, 3, 6, 12, 30],
-          captions: ["One", "Three", "Six", "Twelve", "Thirty"],
-        },
-        { entry: "disableWindows", type: "flip" },
-        { entry: "disableWindowSaving", type: "flip" },
-        { entry: "disableWindowSnapping", type: "flip" },
-        {
-          entry: "disableWindowSnapToViewportBorder",
-          type: "flip",
-          condition: [
-            { value: "settings-disableWindowSnapping", match: false },
-          ],
-        },
-        {
-          entry: "windowResizeBehavior",
-          type: "slider",
-          values: ["corner", "center", "adaptive"],
-          captions: ["Corner", "Center", "Adaptive"],
-        },
-        {
-          entry: "notificationStyle",
-          type: "special",
-          component: <NotificationStylePicker className="mt-4 md:mt-0" />,
-        },
-        {
-          entry: "toastBannerLimit",
-          type: "slider",
-          values: [1, 3, 5, 7],
-          captions: ["One", "Three", "Five", "Seven"],
-          condition: [
-            {
-              value: "settings-notificationStyle",
-              match: "banner",
-            },
-          ],
-        },
-        {
-          entry: "hideColorLookupPanel",
-          type: "flip",
-          condition: [
-            {
-              value: "currentPage",
-              match: "themeMaker",
-            },
-          ],
-        },
-        {
-          entry: "expandThemeMakerWindow",
-          type: "flip",
-          condition: [
-            {
-              value: "currentPage",
-              match: "themeMaker",
-            },
-          ],
-        },
-        {
-          entry: "optimizeProfileExport",
-          type: "flip",
-          condition: [
-            { value: "windowTag", match: "requireThemeMakerSettings" },
-            {
-              value: "currentPage",
-              match: "themeMaker",
-            },
-          ],
-        },
-        {
-          entry: "allowExtendedGradientStopsRange",
-          type: "flip",
-          condition: [
-            { value: "windowTag", match: "requireThemeMakerSettings" },
-            {
-              value: "currentPage",
-              match: "themeMaker",
-            },
-          ],
-        },
-        {
-          entry: "enableColorInterpolationMethod",
-          type: "flip",
-          condition: [
-            { value: "windowTag", match: "requireThemeMakerSettings" },
-            {
-              value: "currentPage",
-              match: "themeMaker",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Miscellaneous",
-      entries: [
-        {
-          entry: "enableGallery",
-          type: "flip",
-          condition: [{ value: "currentPage", match: "photos" }],
-        },
-        {
-          entry: "disableEntryPopUp",
-          type: "flip",
-          condition: [{ value: "currentPage", match: ["photos", "projects"] }],
-        },
-        { entry: "disableComments", type: "flip" },
-        {
-          entry: "disableTableOfContents",
-          type: "flip",
-          condition: [
-            { value: "currentPage", match: ["blog", "management"] },
-            {
-              value: "windowTag",
-              match: "requireTableOfContentsSettings",
-            },
-          ],
-        },
-        {
-          entry: "disableSerifFont",
-          type: "flip",
-          condition: [
-            { value: "currentPage", match: "blog" },
-            {
-              value: "windowTag",
-              match: "requireBlogSettings",
-            },
-          ],
-        },
-        { entry: "disableGestures", type: "flip" },
-        {
-          entry: "instantSearchResult",
-          type: "flip",
-          condition: [
-            { value: "currentPage", match: "blog" },
-            {
-              value: "windowTag",
-              match: "requireEntrySettings",
-            },
-          ],
-        },
-        {
-          entry: "calculatorButtonHasBorder",
-          type: "flip",
-          condition: [
-            {
-              value: "windowTag",
-              match: "requireCalculatorSettings",
-            },
-          ],
         },
       ],
     },
@@ -387,72 +129,22 @@ export default function MenuEntriesSettings({
         );
         return (
           <Fragment key={`${section.title}-${sectionIndex}`}>
-            <p className="text-lg md:text-xl font-bold mb-2 mt-2">
-              {section.title}
-            </p>
             {filteredEntries.map((entry, entryIndex) => {
               const isLastEntry = entryIndex === filteredEntries.length - 1;
               const showDivider =
                 !isLastEntry || sectionIndex !== settingsConfig.length - 1;
 
               switch (entry.type) {
-                case "flip":
-                  return (
-                    <Fragment key={`${entry.entry}-${entryIndex}`}>
-                      <div className="flex items-center gap-2">
-                        <div className="flex-grow text-lg md:text-xl">
-                          {settingsNameMap[entry.entry]}
-                        </div>
-                        <SettingsFlip
-                          onClick={
-                            entry.entry === "disableComments" &&
-                            securityCommentShutDown
-                              ? () => {}
-                              : (status: boolean) => {
-                                  updateSettings({
-                                    [entry.entry]: status,
-                                  } as Partial<SettingsState>);
-                                }
-                          }
-                          state={
-                            !!(entry.entry === "disableComments" &&
-                            securityCommentShutDown
-                              ? true
-                              : settings[entry.entry])
-                          }
-                          appearance={entry?.flipAppearance ?? undefined}
-                        />
-                      </div>
-                      {showDivider && entryDivider}
-                    </Fragment>
-                  );
                 case "slider":
-                  const entryValue = settings[entry.entry] as number;
-                  const performanceWarning =
-                    (entry.entry === "floatingCodeSpeed" &&
-                      entryValue < 1000) ||
-                    (entry.entry === "flyingBalloonRate" &&
-                      entryValue < 1000) ||
-                    (entry.entry === "windowLimit" && entryValue > 4);
+                  const entryValue = settings[entry.entry] as unknown as number;
 
                   return (
                     <Fragment key={`${entry.entry}-${entryIndex}`}>
                       <div className="md:flex md:items-center md:gap-2">
                         <div
-                          className={`md:flex-grow text-lg md:text-xl ${
-                            menuStyle.entryMinWidth
-                          } ${
-                            performanceWarning
-                              ? "flex md:block items-center"
-                              : ""
-                          }`}
+                          className={`md:flex-grow text-lg md:text-xl ${menuStyle.entryMinWidth}`}
                         >
                           {settingsNameMap[entry.entry]}
-                          {performanceWarning && (
-                            <div className="text-xs ml-1 md:ml-0">
-                              (Performance warning)
-                            </div>
-                          )}
                         </div>
                         <SettingsSlider
                           setValue={(newValue: string | number) => {

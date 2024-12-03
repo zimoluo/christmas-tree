@@ -1,7 +1,5 @@
-import MenuEntriesNavigation from "./MenuEntriesNavigation";
 import MenuEntriesSettings from "./MenuEntriesSettings";
 import MenuEntriesUser from "./MenuEntriesUser";
-import MenuEntriesUtility from "./MenuEntriesUtility";
 
 export const menuNavigationItems = [
   "home",
@@ -22,12 +20,8 @@ export default function MenuEntriesLayout() {
         <MenuEntriesUser />
       </div>
 
-      <div className="rounded-2xl w-full bg-light bg-opacity-65 shadow-lg px-6 pt-4 pb-6 my-8 text-lg md:text-xl grid grid-cols-1 gap-4">
+      <div className="rounded-2xl w-full bg-light bg-opacity-65 shadow-lg px-6 pt-6 pb-6 my-8 text-lg md:text-xl grid grid-cols-1 gap-4">
         <MenuEntriesSettings />
-      </div>
-
-      <div className="rounded-2xl w-full bg-light bg-opacity-65 shadow-lg px-6 py-0 my-8 text-lg md:text-xl">
-        <MenuEntriesUtility />
       </div>
     </div>
   );

@@ -1,14 +1,4 @@
-type NavigationKey =
-  | "home"
-  | "photos"
-  | "blog"
-  | "projects"
-  | "about"
-  | "management"
-  | "design"
-  | "themeMaker"
-  | "notebook"
-  | "christmasTree";
+type NavigationKey = "home";
 
 type ArticleCardProps = ArticleCardData & ArticleCardDisplay;
 
