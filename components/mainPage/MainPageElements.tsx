@@ -1,7 +1,5 @@
 import BackgroundAnimation from "./BackgroundAnimation";
 import BackgroundImage from "./BackgroundImage";
-import Footer from "./Footer";
-import NavbarContent from "./NavbarContent";
 import NavbarWrapper from "./NavbarWrapper";
 import MenuEntriesLayout from "./menu/MenuEntriesLayout";
 
@@ -15,15 +13,12 @@ export default function MainPageElements({ children, className = "" }: Props) {
     <>
       <BackgroundImage />
       <BackgroundAnimation />
-      <NavbarWrapper menuContent={<MenuEntriesLayout />}>
-        <NavbarContent />
-      </NavbarWrapper>
+      <NavbarWrapper menuContent={<MenuEntriesLayout />} />
       <main className={className}>{children}</main>
       <div
         className="select-none pointer-events-none flex-grow"
         aria-hidden="true"
       />
-      <Footer />
     </>
   );
 }
