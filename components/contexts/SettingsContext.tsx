@@ -69,7 +69,10 @@ export const SettingsProvider = ({
         updatedSettings
       ) as SettingsState;
 
-      localStorage.setItem("websiteSettings", JSON.stringify(filteredSettings));
+      localStorage.setItem(
+        "websiteSettingsChristmasTree",
+        JSON.stringify(filteredSettings)
+      );
 
       callback(filteredSettings);
 

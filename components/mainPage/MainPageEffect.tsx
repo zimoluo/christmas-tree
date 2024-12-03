@@ -13,7 +13,9 @@ export default function MainPageEffect({ children }: Props) {
   const { updateSettings } = useSettings();
 
   useEffect(() => {
-    const savedRawSettings = localStorage.getItem("websiteSettings");
+    const savedRawSettings = localStorage.getItem(
+      "websiteSettingsChristmasTree"
+    );
     const loadedSettings = parseStoredSettings(savedRawSettings || "") || {};
 
     updateSettings(loadedSettings, false);
