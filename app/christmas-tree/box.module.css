@@ -1,11 +1,11 @@
 .sizing {
   width: 100vw;
-  height: clamp(14rem, calc(100svh - 7rem), 120rem);
+  height: clamp(14rem, 100svh, 240rem);
 }
 
 @media (min-width: 768px) {
   .sizing {
-    width: clamp(5rem, 80vw, 160rem);
-    height: clamp(14rem, calc(100svh - 7.5rem), 120rem);
+    width: clamp(5rem, 80vw, 320rem);
+    height: clamp(14rem, calc(100svh - 7.5rem), 240rem);
   }
 }
