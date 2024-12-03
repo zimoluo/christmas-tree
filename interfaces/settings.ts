@@ -1,4 +1,4 @@
 interface SettingsState {
   backgroundRichness: "minimal" | "reduced" | "rich";
-  pageTheme: Record<NavigationKey, ThemeKey | ThemeDataConfig>;
+  pageTheme: Record<NavigationKey, ThemeKey>;
 }
