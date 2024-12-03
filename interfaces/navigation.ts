@@ -36,10 +36,4 @@ type SharingPlatform =
   | "reddit"
   | "download";
 
-type MenuUtility =
-  | "logOut"
-  | "resetSettings"
-  | "deleteAccount"
-  | "manuallyDownloadSettings"
-  | "resetProfiles"
-  | "resetAllData";
+type MenuUtility = "resetSettings" | "resetProfiles" | "resetAllData";

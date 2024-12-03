@@ -9,8 +9,6 @@ import { useTheme } from "@/components/contexts/ThemeContext";
 import SettingsThemePicker from "./settings/SettingsThemePicker";
 import { useNavigation } from "@/lib/helperHooks";
 import NotificationStylePicker from "./settings/NotificationStylePicker";
-import ThemeProfileSelector from "@/app/design/theme-maker/ThemeProfileSelector";
-import { useWindow } from "@/components/contexts/WindowContext";
 
 const securityCommentShutDown =
   process.env.NEXT_PUBLIC_ZIMO_WEB_COMMENT_SHUTDOWN === "true";
@@ -74,17 +72,10 @@ export default function MenuEntriesSettings({
   ignoreConditions = false,
 }: Props) {
   const { settings, updateSettings } = useSettings();
-  const { windows } = useWindow();
   const { themeConfig } = useTheme();
   const animationKey = themeConfig.animatedBackgroundKey;
 
   const currentPage = useNavigation();
-
-  const getWindowTagMatch = useCallback(
-    (tag: string) =>
-      windows.some((window) => (window.tags ?? []).includes(tag)),
-    [windows]
-  );
 
   const settingsConfig: {
     title: string;
@@ -114,20 +105,6 @@ export default function MenuEntriesSettings({
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-          ),
-        },
-        {
-          entry: "customThemeData",
-          type: "special",
-          component: (
-            <div className={`${menuStyle.themeProfileWidth}`}>
-              <div className="mt-4 mb-7 md:my-2 px-4">
-                <ThemeProfileSelector
-                  className="-mb-3"
-                  applyThemeDataConfig={true}
-                />
               </div>
             </div>
           ),
@@ -383,11 +360,6 @@ export default function MenuEntriesSettings({
           return match.includes(currentPage);
         }
         return currentPage === match;
-      } else if (value === "windowTag") {
-        if (Array.isArray(match)) {
-          return match.some((tag) => getWindowTagMatch(tag));
-        }
-        return getWindowTagMatch(`${match}`);
       } else if (value.startsWith("settings-")) {
         const settingsKey = value.slice("settings-".length);
 

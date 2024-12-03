@@ -2,14 +2,7 @@
 
 import { useSettings } from "@/components/contexts/SettingsContext";
 import { useToast } from "@/components/contexts/ToastContext";
-import { useUser } from "@/components/contexts/UserContext";
-import { useWindow } from "@/components/contexts/WindowContext";
 import { defaultSettings } from "@/lib/constants/defaultSettings";
-import {
-  clearSessionToken,
-  deleteUserAccount,
-  fetchManuallyDownloadUserSettings,
-} from "@/lib/dataLayer/client/accountStateCommunicator";
 import { useNextRenderEffect } from "@/lib/helperHooks";
 import { useState } from "react";
 
@@ -19,26 +12,16 @@ type Props = {
 };
 
 const utilityTextMap: Record<MenuUtility, string> = {
-  logOut: "Log Out",
   resetSettings: "Reset Settings to Default",
   resetProfiles: "Reset Theme Maker Profiles",
   resetAllData: "Reset All Stored Data",
-  deleteAccount: "Delete My Account",
-  manuallyDownloadSettings: "Sync Data from Server",
 };
 
 // Used for next rendering only. Typically involves those that modify settings.
 const utilityToastMap: Record<MenuUtility, ToastEntry | null> = {
-  logOut: null,
   resetSettings: {
     title: "Settings",
     description: "All settings have been reset.",
-    icon: "settings",
-  },
-  deleteAccount: null,
-  manuallyDownloadSettings: {
-    title: "Settings",
-    description: "Data synced.",
     icon: "settings",
   },
   resetProfiles: {
@@ -57,10 +40,8 @@ export default function MenuUtilityButton({
   utility,
   needsConfirm = false,
 }: Props) {
-  const { user, setUser } = useUser();
   const { appendToast } = useToast();
   const { updateSettings } = useSettings();
-  const { restoreWindowFromSave } = useWindow();
   const [isInvoked, setIsInvoked] = useState(false);
   const [isInvokedVisible, setIsInvokedVisible] = useState(false);
   const [isImmediatelyTriggered, setIsImmediatelyTriggered] = useState(false);
@@ -69,10 +50,7 @@ export default function MenuUtilityButton({
     MenuUtility,
     () => void | boolean | Promise<boolean | void>
   > = {
-    logOut,
     resetSettings,
-    deleteAccount,
-    manuallyDownloadSettings,
     resetProfiles,
     resetAllData,
   };
@@ -84,7 +62,6 @@ export default function MenuUtilityButton({
       customThemeIndex,
       notebookData,
       notebookIndex,
-      windowSaveData,
       ...defaultSettingsToReset
     } = structuredClone(defaultSettings);
     updateSettings(defaultSettingsToReset);
@@ -100,41 +77,6 @@ export default function MenuUtilityButton({
     const { syncSettings, ...defaultSettingsToReset } =
       structuredClone(defaultSettings);
     updateSettings(defaultSettingsToReset);
-  }
-
-  async function logOut(direct = true): Promise<void> {
-    await clearSessionToken();
-    setUser(null);
-
-    if (direct) {
-      appendToast({
-        title: "Zimo Web",
-        description: "Logged out.",
-      });
-    }
-  }
-
-  async function deleteAccount(): Promise<void | boolean> {
-    const sub = user?.sub;
-    const state = user?.state;
-    if (!sub) {
-      return false;
-    }
-    if (!state || state === "banned") {
-      appendToast({
-        title: "Zimo Web",
-        description: "Banned users cannot delete their account.",
-      });
-      return false;
-    }
-    await deleteUserAccount(sub);
-    await clearSessionToken();
-    await logOut(false);
-
-    appendToast({
-      title: "Zimo Web",
-      description: "Account deleted.",
-    });
   }
 
   async function performAction() {
@@ -171,34 +113,6 @@ export default function MenuUtilityButton({
     setTimeout(() => {
       setIsImmediatelyTriggered(false);
     }, 320);
-  }
-
-  async function manuallyDownloadSettings() {
-    const downloadedSettings = await fetchManuallyDownloadUserSettings();
-    if (downloadedSettings === null) {
-      appendToast({
-        title: "Settings",
-        description: "No stored settings found.",
-        icon: "settings",
-      });
-      return false;
-    }
-
-    if (
-      !downloadedSettings.disableWindows &&
-      !downloadedSettings.disableWindowSaving &&
-      (downloadedSettings.windowSaveData?.windows?.length ?? 0) > 0
-    ) {
-      restoreWindowFromSave(
-        downloadedSettings.windowSaveData.windows,
-        downloadedSettings.windowSaveData.viewport
-      );
-    }
-
-    const { syncSettings, ...downloadedSettingsWithoutSync } =
-      downloadedSettings;
-
-    updateSettings(downloadedSettingsWithoutSync, false);
   }
 
   function confirmAction() {

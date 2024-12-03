@@ -2,13 +2,16 @@ export async function fetchAddTreeContent(
   treeContent: TreeContent
 ): Promise<TreeContent[] | null> {
   try {
-    const response = await fetch("/api/special/christmas/addTreeContent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ treeContentData: treeContent }),
-    });
+    const response = await fetch(
+      "https://www.zimoluo.me/api/special/christmas/addTreeContent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ treeContentData: treeContent }),
+      }
+    );
 
     if (!response.ok) {
       const { error } = await response.json();
@@ -27,9 +30,12 @@ export async function fetchAddTreeContent(
 
 export async function fetchGetTreeContent(): Promise<TreeContent[]> {
   try {
-    const response = await fetch("/api/special/christmas/getTreeContent", {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      "https://www.zimoluo.me/api/special/christmas/getTreeContent",
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!response.ok) {
       const { error } = await response.json();

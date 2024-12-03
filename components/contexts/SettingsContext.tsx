@@ -3,7 +3,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useUser } from "./UserContext";
 import { defaultSettings } from "@/lib/constants/defaultSettings";
-import { syncUpUserSettings } from "@/lib/dataLayer/client/accountStateCommunicator";
 import _ from "lodash";
 
 export const parseStoredSettings = (
@@ -121,11 +120,7 @@ export const SettingsProvider = ({
     newSettings: Partial<SettingsState>,
     doSync: boolean = true
   ) => {
-    updateAndPersistSettings(newSettings, (updatedSettings) => {
-      if (doSync && user !== null && updatedSettings.syncSettings) {
-        syncUpUserSettings(user.sub, updatedSettings);
-      }
-    });
+    updateAndPersistSettings(newSettings);
   };
 
   const updatePageTheme = (

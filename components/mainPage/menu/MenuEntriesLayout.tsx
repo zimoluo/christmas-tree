@@ -22,16 +22,6 @@ export default function MenuEntriesLayout() {
         <MenuEntriesUser />
       </div>
 
-      <div className="rounded-2xl w-full bg-light bg-opacity-65 shadow-lg px-6 py-4 my-8 text-lg md:text-xl grid grid-cols-1 gap-4">
-        {menuNavigationItems.map((item, index) => (
-          <MenuEntriesNavigation
-            key={item}
-            item={item as NavigationKey}
-            hasBorder={index !== menuNavigationItems.length - 1}
-          />
-        ))}
-      </div>
-
       <div className="rounded-2xl w-full bg-light bg-opacity-65 shadow-lg px-6 pt-4 pb-6 my-8 text-lg md:text-xl grid grid-cols-1 gap-4">
         <MenuEntriesSettings />
       </div>

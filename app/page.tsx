@@ -1,32 +1,28 @@
-import HeaderText from "@/components/mainPage/HeaderText";
-import SocialMediaButtons from "@/components/mainPage/SocialMediaButtons";
-import HomeSecretText from "./HomeSecretText";
-import HomeContent from "./HomeContent";
 import { Metadata } from "next";
+import ChristmasTreeContainer from "./christmas-tree/ChristmasTreeContainer";
 
 export const metadata: Metadata = {
-  title: "Zimo Web",
-  description: "The personal website of Zimo.",
+  title: "🎄 Christmas Tree - Zimo Web",
+  description: "Decorate the Christmas Tree!",
+  keywords:
+    "Zimo Web, Zimo Luo, Christmas Tree, Personal Website, Decorate Christmas Tree",
+  openGraph: {
+    type: "article",
+    title: "Christmas Tree - Zimo Web",
+    url: `/christmas-tree`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christmas Tree - Zimo Web",
+  },
 };
 
-export default function Home() {
+export default async function ChristmasTreePage() {
   return (
-    <>
-      <HeaderText
-        title={
-          <>
-            {"Greetings, I\u2019m\u00A0"}
-            <HomeSecretText />
-            {"."}
-          </>
-        }
-        subtitle={"Hello there. I\u2019m glad you made it here."}
-      >
-        <SocialMediaButtons />
-      </HeaderText>
-      <HomeContent />
-    </>
+    <div className="flex justify-center items-center">
+      <ChristmasTreeContainer />
+    </div>
   );
 }
 
-export const revalidate = 30;
+export const revalidate = 0;

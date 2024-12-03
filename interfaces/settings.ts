@@ -32,13 +32,6 @@ interface SettingsState {
   disableWindows: boolean;
   disableWindowSnapping: boolean;
   disableSpecialTheme: boolean;
-  windowSaveData: {
-    windows: WindowSaveData[];
-    viewport: {
-      width: number;
-      height: number;
-    };
-  };
   disableWindowSaving: boolean;
   toastBannerLimit: number;
   alwaysEnableFireworks: boolean;
