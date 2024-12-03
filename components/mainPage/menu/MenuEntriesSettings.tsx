@@ -10,7 +10,7 @@ import { useNavigation } from "@/lib/helperHooks";
 
 const settingsNameMap: { [key in keyof Partial<SettingsState>]: string } = {
   backgroundRichness: "Background richness",
-  pageTheme: "Theme preset",
+  pageTheme: "Theme palette",
 };
 
 interface SettingsPanelEntry {
