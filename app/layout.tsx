@@ -9,9 +9,7 @@ import {
 import "@/styles/globals.css";
 import MainPageFrame from "@/components/mainPage/MainPageFrame";
 import MainPageElements from "@/components/mainPage/MainPageElements";
-import { UserProvider } from "@/components/contexts/UserContext";
 import { SettingsProvider } from "@/components/contexts/SettingsContext";
-import GoogleOAuthProvider from "@/components/contexts/GoogleOAuthContext";
 import MainPageEffect from "@/components/mainPage/MainPageEffect";
 import { baseUrl } from "@/lib/constants/navigationFinder";
 import { ToastProvider } from "@/components/contexts/ToastContext";
@@ -111,27 +109,21 @@ export default function RootLayout({
       <body
         className={`${mainFont.variable} ${monoFont.variable} ${tabularFont.variable} ${serifFont.variable} ${fancyFont.variable} font-main`}
       >
-        <GoogleOAuthProvider
-          clientId={process.env.NEXT_PUBLIC_ZIMO_WEB_GOOGLE_CLIENT_ID || ""}
-        >
-          <UserProvider>
-            <SettingsProvider>
-              <ToastProvider>
-                <PopUpProvider>
-                  <ThemeDataInitializer>
-                    <ThemeApplier>
-                      <MainPageFrame>
-                        <MainPageEffect>
-                          <MainPageElements>{children}</MainPageElements>
-                        </MainPageEffect>
-                      </MainPageFrame>
-                    </ThemeApplier>
-                  </ThemeDataInitializer>
-                </PopUpProvider>
-              </ToastProvider>
-            </SettingsProvider>
-          </UserProvider>
-        </GoogleOAuthProvider>
+        <SettingsProvider>
+          <ToastProvider>
+            <PopUpProvider>
+              <ThemeDataInitializer>
+                <ThemeApplier>
+                  <MainPageFrame>
+                    <MainPageEffect>
+                      <MainPageElements>{children}</MainPageElements>
+                    </MainPageEffect>
+                  </MainPageFrame>
+                </ThemeApplier>
+              </ThemeDataInitializer>
+            </PopUpProvider>
+          </ToastProvider>
+        </SettingsProvider>
       </body>
     </html>
   );

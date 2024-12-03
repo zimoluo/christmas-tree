@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react";
 import CrossIcon from "@/components/assets/CrossIcon";
-import Link from "next/link";
-import EnterFullPageIcon from "../assets/entries/EnterFullPageIcon";
 import { usePopUp } from "../contexts/PopUpContext";
 import DarkOverlay from "./DarkOverlay";
 import { PopUpActionProvider } from "../contexts/PopUpActionContext";
@@ -15,7 +13,6 @@ type Props = PopUp & {
 export default function PopUpDisplay({
   content,
   onClose = () => {},
-  linkToPage = "",
   index,
   hasDarkOverlay = true,
   hasUtilityButton = true,
@@ -63,14 +60,6 @@ export default function PopUpDisplay({
         </div>
         {hasUtilityButton && (
           <div className="absolute top-4 right-4 z-70 flex items-center justify-center">
-            {linkToPage && (
-              <Link href={linkToPage} onClick={clearPopUp}>
-                <EnterFullPageIcon
-                  color="#efefef"
-                  className="h-5 w-auto opacity-80 mix-blend-plus-lighter transition-transform duration-300 hover:scale-110"
-                />
-              </Link>
-            )}
             <button className="ml-5" onClick={closeThisPopUpIfLast}>
               <CrossIcon
                 color="#efefef"

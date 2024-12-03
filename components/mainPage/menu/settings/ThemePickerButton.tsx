@@ -4,7 +4,6 @@ import { useNavigation } from "@/lib/helperHooks";
 import themePickerStyle from "./settings-theme-picker.module.css";
 import { useSettings } from "@/components/contexts/SettingsContext";
 import Image from "next/image";
-import { useTheme } from "@/components/contexts/ThemeContext";
 import { themeKeyMap } from "@/components/theme/util/themeKeyMap";
 
 interface Props {
@@ -19,13 +18,11 @@ export default function ThemePickerButton({
   const currentPage = useNavigation();
 
   const { settings, updatePageTheme } = useSettings();
-  const { insertThemeProfile } = useTheme();
 
   const handleThemeChange = () => {
     const themeToApply = theme;
 
     if (insertProfile) {
-      insertThemeProfile(themeKeyMap[themeToApply]);
       return;
     }
 

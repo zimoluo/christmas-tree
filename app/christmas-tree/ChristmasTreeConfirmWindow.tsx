@@ -1,6 +1,5 @@
 "use client";
 
-import { useUser } from "@/components/contexts/UserContext";
 import { useState } from "react";
 import Image from "next/image";
 import { fetchAddTreeContent } from "@/lib/dataLayer/client/specialServiceClient";
@@ -20,11 +19,10 @@ export default function ChristmasTreeConfirmWindow({
   selectedData,
   fetchAndSetTreeData,
 }: Props) {
-  const { user } = useUser();
   const { closePopUp } = usePopUpAction();
   const { appendToast } = useToast();
 
-  const [name, setName] = useState<string>(user ? user.name : "");
+  const [name, setName] = useState<string>("");
   const [message, setMessage] = useState("");
   const [isPublic, setIsPublic] = useState(true);
 

@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useState,
-  useContext,
-  ReactNode,
-  useEffect,
-} from "react";
+import { createContext, useState, useContext, ReactNode } from "react";
 import { useSettings } from "./SettingsContext";
 import _ from "lodash";
 
@@ -28,12 +22,6 @@ export function ToastProvider({ children }: Props) {
   const [toast, setToast] = useState<ToastEntry[]>([]);
   const { settings } = useSettings();
 
-  useEffect(() => {
-    if (settings.notificationStyle === "disabled") {
-      clearToast();
-    }
-  }, [settings.notificationStyle]);
-
   const appendToast = (newToast: ToastEntry) => {
     const processedToast: ToastEntry = {
       icon: newToast.icon,
@@ -46,7 +34,7 @@ export function ToastProvider({ children }: Props) {
       return;
     }
 
-    if (!(toast.length < 9) || settings.notificationStyle === "disabled") {
+    if (!(toast.length < 9)) {
       return;
     }
 

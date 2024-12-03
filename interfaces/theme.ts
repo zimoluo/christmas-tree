@@ -1,75 +1,23 @@
 type ThemeKey =
-  | "photos"
-  | "projects"
-  | "home"
-  | "blog"
-  | "about"
-  | "midnight"
-  | "glitter"
-  | "birthday"
-  | "plainLight"
-  | "plainDark"
-  | "rainbow"
-  | "bubbles"
-  | "stars"
   | "christmas"
-  | "grass"
-  | "halloween"
-  | "gold"
-  | "autumnal"
-  | "cherry"
-  | "marina"
-  | "mori"
-  | "sky"
-  | "storm"
-  | "vitreous"
-  | "pixelland"
-  | "scintillating"
-  | "verdant"
-  | "custom"
-  | "penumbra"
-  | "bewitched"
-  | "spookfest"
-  | "underwater"
-  | "crimson"
-  | "eep"
-  | "vibrant"
-  | "gallery"
-  | "plainGray"
+  | "dusk"
+  | "about"
   | "perpetuity"
-  | "celebration"
-  | "birthdayGeneric"
-  | "birthday19"
-  | "dusk";
+  | "glitter"
+  | "vitreous"
+  | "cherry"
+  | "mori"
+  | "home"
+  | "plainGray"
+  | "penumbra"
+  | "rainbow";
 
 type ThemeAnimatedBackgroundKey =
-  | "photos"
-  | "projects"
   | "home"
-  | "blog"
-  | "midnight"
   | "glitter"
-  | "birthday"
   | "rainbow"
-  | "bubbles"
-  | "stars"
   | "christmas"
-  | "grass"
-  | "halloween"
-  | "about"
-  | "gold"
-  | "sky"
-  | "storm"
-  | "pixelland"
-  | "verdant"
-  | "bewitched"
-  | "underwater"
-  | "crimson"
-  | "eep"
-  | "gallery"
   | "perpetuity"
-  | "celebration"
-  | "birthday19"
   | "dusk";
 
 interface ThemeMiscOptions {
@@ -193,7 +141,9 @@ type EditorGradientMode =
 
 type FaviconMode = "backdrop" | "outline" | "separate" | "overall" | "custom";
 
-type CustomFaviconKey = "pixelland" | "gallery" | "dusk";
+type CustomFaviconKey = "dusk";
+
+type HexColor = `#${string}`;
 
 interface FaviconGradientStop {
   color: HexColor;
