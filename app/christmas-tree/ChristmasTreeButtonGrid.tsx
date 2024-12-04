@@ -13,24 +13,30 @@ const availableSprites = [
   "bell2",
   "bell3",
   "bells",
+  "bell",
+  "ribbon",
   "candy",
+  "lollipop",
+  "letter",
+  "snow-globe",
+  "card",
+  "giftbag",
+  "shopping-bag",
+  "tag",
   "cup",
+  "gingerbread",
   "deer",
   "gift",
-  "giftbag",
-  "gingerbread",
+  "sweater",
+  "scarf",
   "glove",
   "hat",
   "sock",
   "headphones",
-  "lollipop",
+  "lights",
   "mistletoe",
-  "ribbon",
   "ring",
-  "scarf",
-  "snow-globe",
   "snowflake",
-  "tag",
 ];
 
 export default function ChristmasTreeButtonGrid() {
@@ -224,7 +230,7 @@ export default function ChristmasTreeButtonGrid() {
   });
 
   return (
-    <div className="w-full md:w-auto md:h-full flex flex-col md:flex-row md:pr-4 pb-4 md:pb-0">
+    <div className="w-full md:w-auto md:h-full flex flex-col md:flex-row md:pr-4 pb-6 md:pb-0">
       <section
         ref={scrollContainerRef}
         className={`flex gap-4 md:gap-6 md:flex-col overflow-auto px-4 py-4 shrink-0 h-min md:h-full ${spriteStyle.noScrollbar}`}
