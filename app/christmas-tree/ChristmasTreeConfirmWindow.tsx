@@ -7,6 +7,8 @@ import windowStyle from "./confirm-window.module.css";
 import { usePopUpAction } from "@/components/contexts/PopUpActionContext";
 import { useToast } from "@/components/contexts/ToastContext";
 import SettingsFlip from "@/components/mainPage/menu/settings/SettingsFlip";
+import { useSettings } from "@/components/contexts/SettingsContext";
+import _ from "lodash";
 
 interface Props {
   position: [number, number];
@@ -19,6 +21,7 @@ export default function ChristmasTreeConfirmWindow({
   selectedData,
   fetchAndSetTreeData,
 }: Props) {
+  const { updateSettings, settings } = useSettings();
   const { closePopUp } = usePopUpAction();
   const { appendToast } = useToast();
 
@@ -46,6 +49,12 @@ export default function ChristmasTreeConfirmWindow({
       appendToast({
         title: "Christmas Tree",
         description: "Message added to the tree!",
+      });
+      updateSettings({
+        viewedChristmasTreeMessages: _.uniq([
+          ...settings.viewedChristmasTreeMessages,
+          result[result.length - 1].uniqueId,
+        ]),
       });
     } else {
       appendToast({

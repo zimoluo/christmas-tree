@@ -3,4 +3,5 @@ export const defaultSettings: SettingsState = {
   pageTheme: {
     home: "christmas",
   },
+  viewedChristmasTreeMessages: [],
 };
