@@ -139,9 +139,7 @@ type EditorGradientMode =
   | "conic-gradient"
   | "repeating-conic-gradient";
 
-type FaviconMode = "backdrop" | "outline" | "separate" | "overall" | "custom";
-
-type CustomFaviconKey = "dusk";
+type FaviconMode = "backdrop" | "outline" | "separate" | "overall";
 
 type HexColor = `#${string}`;
 
@@ -166,7 +164,6 @@ type FaviconGradientConfig =
 interface FaviconConfig {
   mode: FaviconMode;
   outline?: AccentColors | HexColor;
-  customKey?: CustomFaviconKey;
   gradient?: FaviconGradientConfig;
   backdropGradient?: ColorGradient[];
   backdropProhibitSVG?: boolean;
