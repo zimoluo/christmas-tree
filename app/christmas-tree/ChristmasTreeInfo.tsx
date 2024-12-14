@@ -50,6 +50,7 @@ function ChristmasTreeInfoWindow() {
           alive. Of course, the choice is yours!
         </p>
         <p>Spread the joy and make your mark on the Christmas Tree!</p>
+        <p>— Zimo</p>
       </div>
     </div>
   );
