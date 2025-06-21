@@ -13,3 +13,45 @@
 .katex-html {
   @apply sr-only;
 }
+
+.border-reflect {
+  position: relative;
+  --reflect-min: color-mix(
+    in oklab,
+    color-mix(in oklab, rgb(var(--color-pastel)) 48%, rgb(var(--color-light)))
+      33%,
+    transparent
+  );
+  --reflect-max: color-mix(
+    in oklab,
+    color-mix(in oklab, rgb(var(--color-pastel)) 12%, rgb(var(--color-light)))
+      25%,
+    transparent
+  );
+  --reflect-opacity: 1;
+  --reflect-start: 1;
+  --reflect-size: 1px;
+  --reflect-angle: 45deg;
+}
+
+.border-reflect::before {
+  content: "";
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--reflect-size, 1px);
+  background: linear-gradient(
+      var(--reflect-angle, 180deg),
+      var(--reflect-min) 0%,
+      var(--reflect-max) 40%,
+      var(--reflect-max) 60%,
+      var(--reflect-min) 100%
+    ),
+    linear-gradient(15deg, var(--reflect-min) 50%, var(--reflect-max));
+  mask: linear-gradient(rgba(0, 0, 0, var(--reflect-start)), #000) content-box,
+    linear-gradient(rgba(0, 0, 0, var(--reflect-start)), #000);
+  mask-composite: exclude;
+  opacity: var(--reflect-opacity, 1);
+}

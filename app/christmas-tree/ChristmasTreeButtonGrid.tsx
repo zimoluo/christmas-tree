@@ -244,7 +244,7 @@ export default function ChristmasTreeButtonGrid() {
       <div className="flex md:flex-col px-4 py-0 md:py-4 md:px-0 gap-2 items-center">
         <button
           onClick={scrollLeft}
-          className={`w-9 p-2.5 h-9 bg-light bg-opacity-80 backdrop-blur-lg shadow-md rounded-xl transition-opacity duration-300 ease-out group ${
+          className={`w-9 p-2.5 h-9 bg-light bg-opacity-80 backdrop-blur-lg shadow-md rounded-2xl border-reflect transition-opacity duration-300 ease-out group ${
             showLeftButton ? "" : "pointer-events-none select-none"
           }`}
         >
@@ -310,7 +310,7 @@ export default function ChristmasTreeButtonGrid() {
                 isDragging
                   ? spriteStyle.dragButtonDragging
                   : spriteStyle.dragButtonIdle
-              } group-hover:bg-opacity-100 border border-pastel ${
+              } group-hover:bg-opacity-100 border-reflect ${
                 isMounted ? "" : "top-1/2 left-0 md:top-0 md:left-1/2"
               }`}
             />
@@ -319,7 +319,7 @@ export default function ChristmasTreeButtonGrid() {
 
         <button
           onClick={scrollRight}
-          className={`w-9 p-2.5 h-9 bg-light bg-opacity-80 backdrop-blur-lg shadow-md rounded-xl group ${
+          className={`w-9 p-2.5 h-9 bg-light bg-opacity-80 backdrop-blur-lg border-reflect shadow-md rounded-2xl group ${
             showRightButton ? "" : "pointer-events-none select-none"
           }`}
         >

@@ -19,7 +19,7 @@ export default function ExpandMenuButton({
 }: Props) {
   return (
     <button
-      className={`h-6 w-auto aspect-square hover:scale-110 transition-transform duration-300 ease-out ${className}`}
+      className={`h-6 w-auto aspect-square scale-90 hover:scale-100 transition-transform duration-300 ease-out ${className}`}
       onClick={onClick}
       ref={buttonRef}
     >

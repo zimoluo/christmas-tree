@@ -31,12 +31,17 @@ export default function NavbarWrapper({ menuContent }: Props) {
       >
         {menuContent}
       </MenuSlideWrapper>
-      <ExpandMenuButton
-        className="fixed top-3 right-4 z-40"
-        isOpen={menuOpen}
-        onClick={menuOpen ? restoreNavbar : openMenu}
-        buttonRef={menuButtonRef}
-      />
+      <div className="fixed top-3 right-4 z-40">
+        <div className="relative h-0 w-0 pointer-events-none">
+          <div className="absolute right-1 -top-1 h-8 w-8 bg-light bg-opacity-80 backdrop-blur-sm border-reflect rounded-full" />
+        </div>
+        <ExpandMenuButton
+          className=""
+          isOpen={menuOpen}
+          onClick={menuOpen ? restoreNavbar : openMenu}
+          buttonRef={menuButtonRef}
+        />
+      </div>
     </>
   );
 }
