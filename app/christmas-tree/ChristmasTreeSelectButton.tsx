@@ -49,7 +49,6 @@ export default function ChristmasTreeSelectButton({ sprite }: Props) {
         alt={`Pick this sprite: ${sprite}`}
         width={100}
         height={100}
-        draggable={false}
       />
     </button>
   );
