@@ -8,7 +8,7 @@ export default function ChristmasTreeInfo() {
   const { appendPopUp, removePopUpByContextKey } = usePopUp();
   return (
     <button
-      className="w-10 md:w-8 h-10 md:h-8 text-center font-serif font-bold rounded-full bg-light/65 border-reflect-light shadow-lg select-none group flex items-center justify-center"
+      className="w-10 md:w-8 h-10 md:h-8 text-center font-serif font-bold rounded-full bg-light/65 border-reflect-light shadow-lg select-none group flex items-center justify-center backdrop-blur-sm"
       onClick={() => {
         appendPopUp({
           contextKey: "christmas-tree-info",
@@ -34,7 +34,7 @@ export default function ChristmasTreeInfo() {
         });
       }}
     >
-      <div className="w-[21px] h-[21px] pointer-events-none text-xl flex md:hidden text-center justify-center items-center rounded-full outline outline-2 outline-primary/65">
+      <div className="w-[23px] h-[23px] pointer-events-none text-xl flex md:hidden text-center justify-center items-center rounded-full bg-pastel/50">
         <div className="leading-none">i</div>
       </div>
       <div className="transition-transform duration-300 ease-out group-hover:scale-110 w-min h-min leading-none pointer-events-none text-xl hidden md:block">
