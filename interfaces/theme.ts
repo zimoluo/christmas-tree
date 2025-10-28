@@ -2,23 +2,25 @@ type ThemeKey =
   | "christmas"
   | "dusk"
   | "about"
-  | "perpetuity"
   | "glitter"
-  | "oasis"
   | "cherry"
-  | "mori"
   | "home"
-  | "plainGray"
   | "penumbra"
-  | "rainbow";
+  | "celebration"
+  | "vitreous"
+  | "crimson"
+  | "gallery"
+  | "aquarium";
 
 type ThemeAnimatedBackgroundKey =
   | "home"
   | "glitter"
-  | "rainbow"
   | "christmas"
-  | "perpetuity"
-  | "dusk";
+  | "dusk"
+  | "celebration"
+  | "crimson"
+  | "gallery"
+  | "underwater";
 
 interface ThemeMiscOptions {
   readingBlur?: number;

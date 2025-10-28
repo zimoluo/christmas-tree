@@ -14,7 +14,8 @@
     "lodash": "^4.17.21",
     "next": "^15.5.3",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.16",

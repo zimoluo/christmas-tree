@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import HomeAnimatedBackground from "@/components/mainPage/backgroundAnimations/home/HomeAnimatedBackground";
 import GlitterAnimatedBackground from "@/components/mainPage/backgroundAnimations/glitter/GlitterAnimatedBackground";
-import RainbowScroll from "@/components/mainPage/backgroundAnimations/rainbow/RainbowScroll";
 import ChristmasAnimatedBackground from "@/components/mainPage/backgroundAnimations/christmas/ChristmasAnimatedBackground";
-import PerpetuityAnimatedBackground from "@/components/mainPage/backgroundAnimations/perpetuity/PerpetuityAnimatedBackground";
 import DuskAnimatedBackground from "@/components/mainPage/backgroundAnimations/dusk/DuskAnimatedBackground";
+import CelebrationAnimatedBackground from "@/components/mainPage/backgroundAnimations/celebration/CelebrationAnimatedBackground";
+import CrimsonAnimatedBackground from "@/components/mainPage/backgroundAnimations/crimson/CrimsonAnimatedBackground";
+import GalleryAnimatedBackground from "@/components/mainPage/backgroundAnimations/gallery/GalleryAnimatedBackground";
+import UnderwaterAnimatedBackground from "@/components/mainPage/backgroundAnimations/underwater/UnderwaterAnimatedBackground";
 
 export const backgroundAnimationMap: Record<
   ThemeAnimatedBackgroundKey,
@@ -12,8 +14,10 @@ export const backgroundAnimationMap: Record<
 > = {
   home: <HomeAnimatedBackground />,
   glitter: <GlitterAnimatedBackground />,
-  rainbow: <RainbowScroll />,
   christmas: <ChristmasAnimatedBackground />,
-  perpetuity: <PerpetuityAnimatedBackground />,
   dusk: <DuskAnimatedBackground />,
+  celebration: <CelebrationAnimatedBackground />,
+  crimson: <CrimsonAnimatedBackground />,
+  gallery: <GalleryAnimatedBackground />,
+  underwater: <UnderwaterAnimatedBackground />,
 };

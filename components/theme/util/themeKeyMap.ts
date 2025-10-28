@@ -5,23 +5,26 @@ import glitterConfig from "../config/glitter";
 import homeConfig from "../config/home";
 import moriConfig from "../config/mori";
 import penumbraConfig from "../config/penumbra";
-import rainbowConfig from "../config/rainbow";
 import oasisConfig from "../config/oasis";
 import plainGrayConfig from "../config/plainGray";
-import perpetuityConfig from "../config/perpetuity";
 import duskConfig from "../config/dusk";
+import celebrationConfig from "../config/celebration";
+import vitreousConfig from "../config/vitreous";
+import crimsonConfig from "../config/crimson";
+import galleryConfig from "../config/gallery";
+import aquariumConfig from "../config/aquarium";
 
 export const themeKeyMap: Record<ThemeKey, ThemeDataConfig> = {
   home: homeConfig,
   about: aboutConfig,
   glitter: glitterConfig,
-  rainbow: rainbowConfig,
   christmas: christmasConfig,
   cherry: cherryConfig,
-  mori: moriConfig,
-  oasis: oasisConfig,
   penumbra: penumbraConfig,
-  plainGray: plainGrayConfig,
-  perpetuity: perpetuityConfig,
   dusk: duskConfig,
+  celebration: celebrationConfig,
+  vitreous: vitreousConfig,
+  crimson: crimsonConfig,
+  gallery: galleryConfig,
+  aquarium: aquariumConfig,
 };
