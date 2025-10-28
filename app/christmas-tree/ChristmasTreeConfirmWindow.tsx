@@ -30,6 +30,14 @@ export default function ChristmasTreeConfirmWindow({
   const [isPublic, setIsPublic] = useState(true);
 
   const decorateTree = async () => {
+    if (name.trim().length === 0 || message.trim().length === 0) {
+      appendToast({
+        title: "Christmas Tree",
+        description: "Name and message cannot be empty.",
+      });
+      return;
+    }
+
     const treeData: TreeContent = {
       date: "", // Date will be given on the server side.
       from: name.trim(),

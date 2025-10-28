@@ -22,7 +22,7 @@ export default function SettingsFlip({
 
   return (
     <button
-      className={`w-auto relative rounded-full overflow-hidden shadow-lg select-none shrink-0 ${
+      className={`w-auto relative rounded-full overflow-hidden shadow-lg select-none shrink-0 border-reflect-primary ${
         defaultDimension ? "h-8" : ""
       } ${className}`}
       onClick={flip}
@@ -38,7 +38,7 @@ export default function SettingsFlip({
       <SettingsFlipButton
         className={`h-full w-auto aspect-square rounded-full absolute top-0 left-0 pointer-events-none select-none transition-transform duration-200 ease-out ${
           state ? flipStyle.on : flipStyle.off
-        } rounded-full`}
+        } rounded-full scale-95`}
       />
     </button>
   );
