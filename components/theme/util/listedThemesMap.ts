@@ -1,6 +1,6 @@
 export const allListedThemes: ThemeKey[] = [
-  "christmas",
   "celebration",
+  "christmas",
   "dusk",
   "glitter",
   "vitreous",

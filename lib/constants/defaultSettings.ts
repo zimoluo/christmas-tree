@@ -1,7 +1,7 @@
 export const defaultSettings: SettingsState = {
   backgroundRichness: "rich",
   pageTheme: {
-    home: "christmas",
+    home: "celebration",
   },
   viewedChristmasTreeMessages: [],
 };
