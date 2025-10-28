@@ -24,7 +24,20 @@ const config: Config = {
         saturated: "rgb(var(--color-saturated) / <alpha-value>)",
         pastel: "rgb(var(--color-pastel) / <alpha-value>)",
         light: "rgb(var(--color-light) / <alpha-value>)",
+        "highlight-primary":
+          "rgb(var(--color-highlight-primary) / <alpha-value>)",
+        "highlight-saturated":
+          "rgb(var(--color-highlight-saturated) / <alpha-value>)",
+        "highlight-pastel":
+          "rgb(var(--color-highlight-pastel) / <alpha-value>)",
+        "highlight-light": "rgb(var(--color-highlight-light) / <alpha-value>)",
         highlight: "rgb(248 248 248 / <alpha-value>)",
+        "midlight-primary":
+          "rgb(var(--color-midlight-primary) / <alpha-value>)",
+        "midlight-saturated":
+          "rgb(var(--color-midlight-saturated) / <alpha-value>)",
+        "midlight-pastel": "rgb(var(--color-midlight-pastel) / <alpha-value>)",
+        "midlight-light": "rgb(var(--color-midlight-light) / <alpha-value>)",
       },
       backgroundImage: {
         page: "var(--bg-page)",
@@ -34,6 +47,18 @@ const config: Config = {
         "22.5": "22.5deg",
         "360": "360deg",
         "135": "135deg",
+      },
+      boxShadow: {
+        xs: "0 7px 12px -4px rgb(0 0 0 / 0.023), 0 2px 8px -2px rgb(0 0 0 / 0.048)",
+        sm: "0 10px 18px -5px rgb(0 0 0 / 0.028), 0 3px 12px -3px rgb(0 0 0 / 0.066)",
+        DEFAULT:
+          "0 12px 22px -6px rgb(0 0 0 / 0.03), 0 4px 18px -3px rgb(0 0 0 / 0.072)",
+        md: "0 16px 28px -10px rgb(0 0 0 / 0.032), 0 5px 28px -4px rgb(0 0 0 / 0.078)",
+        lg: "0 18px 28px -7px rgb(0 0 0 / 0.038), 0 5px 28px -4px rgb(0 0 0 / 0.09)",
+        xl: "0 20px 34px -7px rgb(0 0 0 / 0.057), 0 6px 34px -4px rgb(0 0 0 / 0.11)",
+        "2xl":
+          "0 23px 40px -8px rgb(0 0 0 / 0.068), 0 8px 40px -6px rgb(0 0 0 / 0.12)",
+        none: "none",
       },
       zIndex: {
         "60": "60",
@@ -107,6 +132,80 @@ const config: Config = {
       addUtilities(newUtilities, {
         variants: ["responsive"],
       });
+    },
+    function ({ addUtilities, matchUtilities }: any) {
+      const variants = {
+        primary: {
+          "--reflect-min":
+            "color-mix(in srgb, color-mix(in srgb, rgb(var(--color-highlight-primary) / 0.025) 60%, rgb(248 248 248 / 0.025)) 80%, rgb(var(--color-midlight-primary) / 0.025))",
+          "--reflect-max":
+            "color-mix(in srgb, rgb(var(--color-highlight-primary) / 0.4) 15%, rgb(253 253 253 / 0.4))",
+        },
+        saturated: {
+          "--reflect-min":
+            "color-mix(in srgb, color-mix(in srgb, rgb(var(--color-highlight-saturated) / 0.025) 60%, rgb(248 248 248 / 0.025)) 80%, rgb(var(--color-midlight-saturated) / 0.025))",
+          "--reflect-max":
+            "color-mix(in srgb, rgb(var(--color-highlight-saturated) / 0.4) 15%, rgb(253 253 253 / 0.4))",
+        },
+        pastel: {
+          "--reflect-min":
+            "color-mix(in srgb, color-mix(in srgb, rgb(var(--color-highlight-pastel) / 0.025) 60%, rgb(248 248 248 / 0.025)) 80%, rgb(var(--color-midlight-pastel) / 0.025))",
+          "--reflect-max":
+            "color-mix(in srgb, rgb(var(--color-highlight-pastel) / 0.4) 15%, rgb(253 253 253 / 0.4))",
+        },
+        light: {
+          "--reflect-min":
+            "color-mix(in srgb, color-mix(in srgb, rgb(var(--color-highlight-light) / 0.025) 60%, rgb(248 248 248 / 0.025)) 80%, rgb(var(--color-midlight-light) / 0.025))",
+          "--reflect-max":
+            "color-mix(in srgb, rgb(var(--color-highlight-light) / 0.4) 15%, rgb(253 253 253 / 0.4))",
+        },
+      };
+
+      const baseEffect = {
+        position: "relative",
+        "--reflect-opacity": "1",
+        "--reflect-start": "1",
+        "--reflect-size": "1px",
+        "--reflect-angle": "45deg",
+        "&::before": {
+          content: "''",
+          pointerEvents: "none",
+          userSelect: "none",
+          position: "absolute",
+          inset: "0",
+          borderRadius: "inherit",
+          padding: "var(--reflect-size, 1px)",
+          background: `linear-gradient(
+              var(--reflect-angle, 180deg),
+              var(--reflect-min) 0%,
+              var(--reflect-max) 40%,
+              var(--reflect-max) 60%,
+              var(--reflect-min) 100%
+            ),
+            linear-gradient(-15deg, var(--reflect-min) 50%, var(--reflect-max))`,
+          mask: `linear-gradient(rgba(0,0,0,var(--reflect-start)), #000) content-box,
+                 linear-gradient(rgba(0,0,0,var(--reflect-start)), #000)`,
+          maskComposite: "exclude",
+          opacity: "var(--reflect-opacity, 1)",
+        },
+      };
+
+      const utilities = Object.fromEntries(
+        Object.entries(variants).map(([name, vars]) => [
+          `.border-reflect-${name}`,
+          { ...baseEffect, ...vars },
+        ])
+      );
+      addUtilities(utilities, ["responsive"]);
+
+      matchUtilities(
+        {
+          "border-reflect": (value: any) => ({
+            "--reflect-size": value,
+          }),
+        },
+        { values: {} }
+      );
     },
   ],
 };

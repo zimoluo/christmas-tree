@@ -128,7 +128,12 @@ export default function MenuEntriesSettings({
           checkCondition(entry.condition)
         );
         return (
-          <Fragment key={`${section.title}-${sectionIndex}`}>
+          <div
+            key={`${section.title || "settings-section"}-${sectionIndex}`}
+            className={
+              "w-full bg-light bg-opacity-8 rounded-[2rem] shadow-xl py-4 px-5 mb-4 text-base grid grid-cols-1 gap-3 border border-highlight-light border-opacity-15"
+            }
+          >
             {filteredEntries.map((entry, entryIndex) => {
               const isLastEntry = entryIndex === filteredEntries.length - 1;
               const showDivider =
@@ -140,37 +145,29 @@ export default function MenuEntriesSettings({
 
                   return (
                     <Fragment key={`${entry.entry}-${entryIndex}`}>
-                      <div className="md:flex md:items-center md:gap-2">
-                        <div
-                          className={`md:flex-grow text-lg md:text-xl ${menuStyle.entryMinWidth}`}
-                        >
-                          {settingsNameMap[entry.entry]}
-                        </div>
-                        <SettingsSlider
-                          setValue={(newValue: string | number) => {
-                            updateSettings({
-                              [entry.entry]: newValue,
-                            } as Partial<SettingsState>);
-                          }}
-                          values={entry.values as (string | number)[]}
-                          text={entry.captions ?? []}
-                          entry={entryValue}
-                        />
+                      <div className={`text-base ${menuStyle.entryMinWidth}`}>
+                        {settingsNameMap[entry.entry]}
                       </div>
+                      <SettingsSlider
+                        setValue={(newValue: string | number) => {
+                          updateSettings({
+                            [entry.entry]: newValue,
+                          } as Partial<SettingsState>);
+                        }}
+                        values={entry.values as (string | number)[]}
+                        text={entry.captions ?? []}
+                        entry={entryValue}
+                      />
                       {showDivider && entryDivider}
                     </Fragment>
                   );
                 case "special":
                   return (
                     <Fragment key={`${entry.entry}-${entryIndex}`}>
-                      <div className="md:flex md:items-center">
-                        <div
-                          className={`text-lg md:text-xl ${menuStyle.entryMinWidth}`}
-                        >
-                          {settingsNameMap[entry.entry]}
-                        </div>
-                        {entry.component}
+                      <div className={`text-base ${menuStyle.entryMinWidth}`}>
+                        {settingsNameMap[entry.entry]}
                       </div>
+                      {entry.component}
                       {showDivider && entryDivider}
                     </Fragment>
                   );
@@ -178,7 +175,7 @@ export default function MenuEntriesSettings({
                   return null;
               }
             })}
-          </Fragment>
+          </div>
         );
       })}
     </>

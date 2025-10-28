@@ -9,12 +9,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     title: "Christmas Tree",
-    url: `/christmas-tree`,
+    url: "https://tree.zimoluo.me/",
   },
   twitter: {
     card: "summary_large_image",
     title: "Christmas Tree",
   },
+  metadataBase: new URL("https://tree.zimoluo.me/"),
 };
 
 export default async function ChristmasTreePage() {
