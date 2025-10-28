@@ -34,11 +34,11 @@ export default function NavbarWrapper({ menuContent }: Props) {
       <div
         className={`fixed top-4 md:top-2.5 right-4 z-30 h-10 md:h-13 w-10 md:w-13 pointer-events-none select-none transition-[filter,opacity] duration-200 ease-out ${
           isSideMenuExpanded ? "opacity-0 blur-[8px]" : "opacity-100"
-        }`}
+        } select-none`}
       >
         <div className="w-full h-full shadow-lg rounded-full bg-light/65 backdrop-blur-sm border-reflect-light" />
       </div>
-      <div className="fixed top-4 md:top-2.5 right-4 z-30 h-10 md:h-13 w-10 md:w-13">
+      <div className="fixed top-4 md:top-2.5 right-4 z-30 h-10 md:h-13 w-10 md:w-13 select-none">
         <button
           className="w-full h-full flex items-center justify-center rounded-full"
           onClick={isSideMenuExpanded ? restoreNavbar : openMenu}
