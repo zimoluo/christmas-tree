@@ -8,29 +8,16 @@ export default function BackgroundImage() {
   const { themeConfig } = useTheme();
 
   return (
-    <>
-      <div
-        aria-hidden="true"
-        style={{
-          backgroundColor: themeConfig.siteThemeColor,
-        }}
-        className={`fixed -z-50 pointer-events-none h-[100svh] inset-0 bg-cover bg-center select-none ${
-          settings.backgroundRichness === "minimal"
-            ? "bg-page-minimal"
-            : "bg-page"
-        }`}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          backgroundColor: themeConfig.siteThemeColor,
-        }}
-        className={`fixed -z-50 pointer-events-none h-[100svh] inset-0 bg-cover bg-center select-none -scale-y-100 translate-y-[100svh] ${
-          settings.backgroundRichness === "minimal"
-            ? "bg-page-minimal"
-            : "bg-page"
-        }`}
-      />
-    </>
+    <div
+      aria-hidden="true"
+      style={{
+        backgroundColor: themeConfig.siteThemeColor,
+      }}
+      className={`fixed -z-50 pointer-events-none inset-0 bg-cover bg-center select-none ${
+        settings.backgroundRichness === "minimal"
+          ? "bg-page-minimal"
+          : "bg-page"
+      }`}
+    />
   );
 }
