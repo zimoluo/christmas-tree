@@ -4,9 +4,9 @@ import GlitterAnimatedBackground from "@/components/mainPage/backgroundAnimation
 import ChristmasAnimatedBackground from "@/components/mainPage/backgroundAnimations/christmas/ChristmasAnimatedBackground";
 import DuskAnimatedBackground from "@/components/mainPage/backgroundAnimations/dusk/DuskAnimatedBackground";
 import CelebrationAnimatedBackground from "@/components/mainPage/backgroundAnimations/celebration/CelebrationAnimatedBackground";
-import CrimsonAnimatedBackground from "@/components/mainPage/backgroundAnimations/crimson/CrimsonAnimatedBackground";
 import GalleryAnimatedBackground from "@/components/mainPage/backgroundAnimations/gallery/GalleryAnimatedBackground";
 import UnderwaterAnimatedBackground from "@/components/mainPage/backgroundAnimations/underwater/UnderwaterAnimatedBackground";
+import EventideAnimatedBackground from "@/components/mainPage/backgroundAnimations/eventide/EventideAnimatedBackground";
 
 export const backgroundAnimationMap: Record<
   ThemeAnimatedBackgroundKey,
@@ -17,7 +17,7 @@ export const backgroundAnimationMap: Record<
   christmas: <ChristmasAnimatedBackground />,
   dusk: <DuskAnimatedBackground />,
   celebration: <CelebrationAnimatedBackground />,
-  crimson: <CrimsonAnimatedBackground />,
   gallery: <GalleryAnimatedBackground />,
   underwater: <UnderwaterAnimatedBackground />,
+  eventide: <EventideAnimatedBackground />,
 };

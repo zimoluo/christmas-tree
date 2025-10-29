@@ -8,9 +8,9 @@ type ThemeKey =
   | "penumbra"
   | "celebration"
   | "vitreous"
-  | "crimson"
   | "gallery"
-  | "aquarium";
+  | "aquarium"
+  | "eventide";
 
 type ThemeAnimatedBackgroundKey =
   | "home"
@@ -18,9 +18,9 @@ type ThemeAnimatedBackgroundKey =
   | "christmas"
   | "dusk"
   | "celebration"
-  | "crimson"
   | "gallery"
-  | "underwater";
+  | "underwater"
+  | "eventide";
 
 interface ThemeMiscOptions {
   readingBlur?: number;
