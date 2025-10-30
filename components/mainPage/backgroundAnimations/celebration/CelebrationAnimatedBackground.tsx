@@ -10,24 +10,47 @@ export default function CelebrationAnimatedBackground() {
 
   return (
     <div
-      className={`inset-0 w-large-screen h-large-screen flex -z-20 items-center justify-center fixed pointer-events-none select-none touch-none`}
+      className={`inset-0 w-screen h-screen flex -z-20 items-center justify-center fixed pointer-events-none select-none touch-none`}
       aria-hidden="true"
     >
       <div
         className={`${celebrationStyle.sizing} -z-20 pointer-events-none select-none touch-none fixed`}
         aria-hidden="true"
       >
-        {patterns.map((i) => (
-          <div
-            key={i}
-            className={`${celebrationStyle[`pattern${i}`]} ${
-              celebrationStyle.fireworks
-            } ${celebrationStyle[`fire${i}`]}`}
-          >
-            <div className={`${celebrationStyle.ring_1}`}></div>
-            <div className={`${celebrationStyle.ring_2}`}></div>
-          </div>
-        ))}
+        {patterns.map(
+          (i) =>
+            i % 3 === 2 && (
+              <div
+                key={i}
+                className={`${celebrationStyle[`pattern${i}`]} ${
+                  celebrationStyle.fireworks
+                } ${celebrationStyle[`fire${i}`]}`}
+              >
+                <div className={`${celebrationStyle.ring_1}`}></div>
+                <div className={`${celebrationStyle.ring_2}`}></div>
+              </div>
+            )
+        )}
+      </div>
+
+      <div
+        className={`${celebrationStyle.sizing} -z-20 pointer-events-none select-none touch-none fixed hidden md:block`}
+        aria-hidden="true"
+      >
+        {patterns.map(
+          (i) =>
+            i % 3 < 2 && (
+              <div
+                key={i}
+                className={`${celebrationStyle[`pattern${i}`]} ${
+                  celebrationStyle.fireworks
+                } ${celebrationStyle[`fire${i}`]}`}
+              >
+                <div className={`${celebrationStyle.ring_1}`}></div>
+                <div className={`${celebrationStyle.ring_2}`}></div>
+              </div>
+            )
+        )}
       </div>
     </div>
   );
