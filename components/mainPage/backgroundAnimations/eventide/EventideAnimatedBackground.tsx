@@ -17,17 +17,17 @@ export default function EventideAnimatedBackground() {
         aria-hidden="true"
       />
       <div
-        className={`${spritesStyle.sprite} ${spritesStyle.moon} fixed left-1/2 -translate-x-1/2 pointer-events-none select-none touch-none -z-20`}
+        className={`${spritesStyle.sprite} ${spritesStyle.moon} fixed pointer-events-none select-none touch-none -z-20`}
         aria-hidden="true"
       />
       {settings.backgroundRichness === "rich" && (
         <>
           <div
-            className={`${spritesStyle.sprite} ${spritesStyle.moon} ${spritesStyle.darkMoon} fixed left-1/2 -translate-x-1/2 pointer-events-none select-none touch-none -z-20`}
+            className={`${spritesStyle.sprite} ${spritesStyle.moon} ${spritesStyle.darkMoon} fixed pointer-events-none select-none touch-none -z-20`}
             aria-hidden="true"
           />
           <div
-            className={`${spritesStyle.sprite} ${spritesStyle.moon} ${spritesStyle.brightMoon} fixed left-1/2 -translate-x-1/2 pointer-events-none select-none touch-none -z-20`}
+            className={`${spritesStyle.sprite} ${spritesStyle.moon} ${spritesStyle.brightMoon} fixed pointer-events-none select-none touch-none -z-20`}
             aria-hidden="true"
           />
         </>

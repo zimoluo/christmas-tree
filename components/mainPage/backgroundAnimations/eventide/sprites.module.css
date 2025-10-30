@@ -31,6 +31,13 @@
   @apply -translate-x-1/2;
 }
 
+@media (width < 768px) {
+  .moon {
+    top: 14vh;
+    left: 22vw;
+  }
+}
+
 .darkMoon {
   background-image: url("/theme/animated-background/eventide/moon-dark.png");
   animation: moonDark 30s linear infinite;

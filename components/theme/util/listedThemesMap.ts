@@ -1,8 +1,8 @@
 export const allListedThemes: ThemeKey[] = [
+  "eventide",
   "celebration",
   "christmas",
   "dusk",
-  "eventide",
   "glitter",
   "vitreous",
   "about",
