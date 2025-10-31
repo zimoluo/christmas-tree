@@ -141,7 +141,7 @@ export default function MenuEntriesSettings({
 
                   return (
                     <Fragment key={`${entry.entry}-${entryIndex}`}>
-                      <div className={`text-base ${menuStyle.entryMinWidth}`}>
+                      <div className="text-base -mb-1">
                         {settingsNameMap[entry.entry]}
                       </div>
                       <SettingsSlider
