@@ -50,12 +50,8 @@ export default function MenuEntriesSettings({
           entry: "pageTheme",
           type: "special",
           component: (
-            <div className="md:flex-grow my-5 md:my-2">
+            <div>
               <SettingsThemePicker />
-              <div
-                className="h-4 select-none pointer-events-none"
-                aria-hidden="true"
-              />
             </div>
           ),
         },
