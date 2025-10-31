@@ -50,7 +50,7 @@ export default function MenuEntriesSettings({
           entry: "pageTheme",
           type: "special",
           component: (
-            <div>
+            <div className="mt-2 mb-1">
               <SettingsThemePicker />
             </div>
           ),
