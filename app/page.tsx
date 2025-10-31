@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function ChristmasTreePage() {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center overflow-hidden">
       <ChristmasTreeContainer />
     </div>
   );
