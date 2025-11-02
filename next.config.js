@@ -9,6 +9,7 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "uimg.ngfiles.com",
     ],
+    unoptimized: true,
   },
   env: {
     version,
