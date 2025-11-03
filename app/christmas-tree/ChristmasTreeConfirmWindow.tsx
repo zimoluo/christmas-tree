@@ -115,10 +115,9 @@ export default function ChristmasTreeConfirmWindow({
             type="text"
             value={name}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              if (event.target.value.length <= 100) {
-                setName(event.target.value);
-              }
+              setName(event.target.value);
             }}
+            maxLength={500}
             placeholder="Name..."
             className="w-full px-3 font-bold text-lg resize-none border border-highlight-light/15 bg-none bg-light bg-opacity-80 shadow-lg h-10 rounded-full placeholder:text-saturated placeholder:text-opacity-70"
           />
@@ -184,10 +183,9 @@ export default function ChristmasTreeConfirmWindow({
           className={`relative px-3 py-2 w-full h-full resize-none text-lg bg-light bg-opacity-80 rounded-2xl border border-highlight-light/15 shadow-lg bg-none placeholder:text-saturated placeholder:text-opacity-70`}
           value={message}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            if (event.target.value.length <= 800) {
-              setMessage(event.target.value);
-            }
+            setMessage(event.target.value);
           }}
+          maxLength={4000}
           placeholder="Leave your message here..."
         />
         <div className="absolute bottom-4 right-4 flex gap-1.5 items-center">
