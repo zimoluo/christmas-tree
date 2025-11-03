@@ -48,7 +48,9 @@ export default function ChristmasTreeInfo() {
 function ChristmasTreeInfoWindow() {
   return (
     <div className="rounded-[2rem] w-full h-full bg-widget-90 shadow-xl p-0 flex flex-col outline outline-1 outline-highlight-light/15 relative">
-      <h1 className="font-fancy text-2xl h-14 absolute top-0 left-0 w-full px-6 pt-6 z-10 whitespace-nowrap">
+      <h1
+        className={`font-fancy text-2xl h-14 absolute top-0 left-0 w-full px-6 pt-6 z-10 whitespace-nowrap ${boxStyle.infoTitleShadow}`}
+      >
         Christmas Tree
       </h1>
       <div
