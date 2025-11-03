@@ -3,6 +3,7 @@
 import { usePopUp } from "@/components/contexts/PopUpContext";
 import windowStyle from "./confirm-window.module.css";
 import CrossIcon from "@/components/assets/CrossIcon";
+import boxStyle from "./box.module.css";
 
 export default function ChristmasTreeInfo() {
   const { appendPopUp, removePopUpByContextKey } = usePopUp();
@@ -19,7 +20,7 @@ export default function ChristmasTreeInfo() {
               <div className="relative w-full h-full">
                 <ChristmasTreeInfoWindow />
               </div>
-              <div className="top-4 right-4 absolute">
+              <div className="top-4 right-4 absolute z-10">
                 <button
                   className="w-8 h-8 flex items-center justify-center rounded-full bg-light/65 border-reflect-light shadow-lg select-none group"
                   onClick={() => {
@@ -46,9 +47,13 @@ export default function ChristmasTreeInfo() {
 
 function ChristmasTreeInfoWindow() {
   return (
-    <div className="rounded-[2rem] w-full h-full bg-widget-90 shadow-xl p-6 flex flex-col outline outline-1 outline-highlight-light/15">
-      <h1 className="font-fancy text-2xl mb-6">Christmas Tree</h1>
-      <div className="overflow-y-auto flex-grow space-y-4 text-lg">
+    <div className="rounded-[2rem] w-full h-full bg-widget-90 shadow-xl p-0 flex flex-col outline outline-1 outline-highlight-light/15 relative">
+      <h1 className="font-fancy text-2xl h-14 absolute top-0 left-0 w-full px-6 pt-6 z-10 whitespace-nowrap">
+        Christmas Tree
+      </h1>
+      <div
+        className={`overflow-y-auto flex-grow space-y-4 text-lg pb-6 pt-20 rounded-[2rem] px-6 ${boxStyle.infoFade}`}
+      >
         <p>
           Christmas Tree is a small holiday project where you can leave a
           message on this shared festive tree. You’re welcome to share something

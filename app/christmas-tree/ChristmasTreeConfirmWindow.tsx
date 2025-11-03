@@ -28,6 +28,7 @@ export default function ChristmasTreeConfirmWindow({
   const [name, setName] = useState<string>("");
   const [message, setMessage] = useState("");
   const [isPublic, setIsPublic] = useState(true);
+  const [isChangingSprite, setIsChangingSprite] = useState(false);
 
   const decorateTree = async () => {
     if (name.trim().length === 0 || message.trim().length === 0) {
