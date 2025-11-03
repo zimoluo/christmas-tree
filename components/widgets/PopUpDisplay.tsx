@@ -60,16 +60,15 @@ export default function PopUpDisplay({
           </PopUpActionProvider>
         </div>
         {hasUtilityButton && (
-          <div
-            className={`absolute top-3 right-3 z-70 flex items-center justify-center gap-5 ${popUpStyle.onlyChildRule} py-2.5 rounded-full bg-neutral-600/30 backdrop-blur-sm outline outline-1 outline-neutral-200/15`}
+          <button
+            className={`absolute top-3 group right-3 z-70 flex items-center justify-center gap-5 ${popUpStyle.onlyChildRule} py-2.5 rounded-full bg-neutral-600/30 backdrop-blur-sm outline outline-1 outline-neutral-200/15`}
+            onClick={closeThisPopUpIfLast}
           >
-            <button onClick={closeThisPopUpIfLast}>
-              <CrossIcon
-                color="#efefef"
-                className="h-5 w-auto opacity-80 mix-blend-plus-lighter transition-transform duration-300 hover:scale-110"
-              />
-            </button>
-          </div>
+            <CrossIcon
+              color="#efefef"
+              className="h-5 w-auto opacity-80 mix-blend-plus-lighter transition-transform duration-300 group-hover:scale-105"
+            />
+          </button>
         )}
       </div>
     </>
