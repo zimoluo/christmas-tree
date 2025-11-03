@@ -55,7 +55,7 @@ export default function ChristmasTreeConfirmWindow({
       from: name.trim(),
       message: message.trim(),
       sprite: selectedSprite,
-      position: position.map((num) => Number(num.toFixed(3))) as [
+      position: position.map((num) => parseFloat(num.toFixed(3))) as [
         number,
         number
       ],
