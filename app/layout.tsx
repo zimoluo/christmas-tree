@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${mainFont.variable} ${monoFont.variable} ${tabularFont.variable} ${serifFont.variable} ${fancyFont.variable} font-main overflow-hidden fixed top-0`}
+        className={`${mainFont.variable} ${monoFont.variable} ${tabularFont.variable} ${serifFont.variable} ${fancyFont.variable} font-main overflow-hidden fixed top-0 antialiased`}
       >
         <SettingsProvider>
           <ToastProvider>
