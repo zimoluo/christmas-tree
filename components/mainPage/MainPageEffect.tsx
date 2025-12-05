@@ -14,7 +14,7 @@ export default function MainPageEffect({ children }: Props) {
 
   useEffect(() => {
     const savedRawSettings = localStorage.getItem(
-      "websiteSettingsChristmasTree"
+      "websiteSettingsChristmasTreeZimoWeb"
     );
     const loadedSettings = parseStoredSettings(savedRawSettings || "") || {};
 

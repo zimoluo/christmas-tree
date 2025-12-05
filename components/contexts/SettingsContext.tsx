@@ -70,7 +70,7 @@ export const SettingsProvider = ({
       ) as SettingsState;
 
       localStorage.setItem(
-        "websiteSettingsChristmasTree",
+        "websiteSettingsChristmasTreeZimoWeb",
         JSON.stringify(filteredSettings)
       );
 
