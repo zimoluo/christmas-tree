@@ -5,3 +5,7 @@
 .onlyChildRule:has(:only-child) {
   @apply px-2.5;
 }
+
+.specialReflect {
+  --reflect-color: rgb(255 255 255 / 0.4);
+}
