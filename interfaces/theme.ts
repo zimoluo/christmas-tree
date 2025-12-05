@@ -10,7 +10,7 @@ type ThemeKey =
   | "vitreous"
   | "gallery"
   | "aquarium"
-  | "eventide";
+  | "eventideFestive";
 
 type ThemeAnimatedBackgroundKey =
   | "home"

@@ -1,10 +1,43 @@
-const eventideConfig: ThemeDataConfig = {
+const eventideFestiveConfig: ThemeDataConfig = {
   palette: {
     primary: [237, 241, 255],
     saturated: [156, 172, 219],
     pastel: [83, 107, 172],
     light: [44, 60, 114],
     widget: [
+      {
+        type: "radial-gradient",
+        stops: [
+          { color: [11, 79, 52], at: 0, opacity: 0.5, isWidgetOpacity: true },
+          { color: [97, 209, 96], at: 150, opacity: 0 },
+        ],
+        posX: -2,
+        posY: 20,
+        isCircle: true,
+        sizeKeyword: "closest-corner",
+      },
+      {
+        type: "radial-gradient",
+        stops: [
+          { color: [117, 5, 5], at: 0, opacity: 0.4, isWidgetOpacity: true },
+          { color: [178, 24, 24], at: 125, opacity: 0, isWidgetOpacity: true },
+        ],
+        posX: 105,
+        posY: 40,
+        isCircle: true,
+        sizeKeyword: "closest-corner",
+      },
+      {
+        type: "radial-gradient",
+        stops: [
+          { color: [92, 39, 17], at: 0, opacity: 0.5, isWidgetOpacity: true },
+          { color: [209, 135, 96], at: 150, opacity: 0 },
+        ],
+        posX: 36,
+        posY: 102,
+        isCircle: true,
+        sizeKeyword: "closest-corner",
+      },
       {
         type: "radial-gradient",
         stops: [
@@ -52,4 +85,4 @@ const eventideConfig: ThemeDataConfig = {
   misc: { readingBlur: 8 },
 };
 
-export default eventideConfig;
+export default eventideFestiveConfig;

@@ -9,7 +9,7 @@ import celebrationConfig from "../config/celebration";
 import vitreousConfig from "../config/vitreous";
 import galleryConfig from "../config/gallery";
 import aquariumConfig from "../config/aquarium";
-import eventideConfig from "../config/eventide";
+import eventideFestiveConfig from "../config/eventideFestive";
 
 export const themeKeyMap: Record<ThemeKey, ThemeDataConfig> = {
   home: homeConfig,
@@ -23,5 +23,5 @@ export const themeKeyMap: Record<ThemeKey, ThemeDataConfig> = {
   vitreous: vitreousConfig,
   gallery: galleryConfig,
   aquarium: aquariumConfig,
-  eventide: eventideConfig,
+  eventideFestive: eventideFestiveConfig,
 };
