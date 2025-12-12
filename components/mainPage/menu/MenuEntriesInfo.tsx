@@ -10,8 +10,19 @@ export default function MenuEntriesInfo() {
         Christmas Tree v
         <span className="font-tabular">{process.env.version}</span>
       </p>
+      <p>&copy; {displayYear} Zimo Luo. All rights reserved.</p>
       <p>
-        &copy; {displayYear} Zimo Luo. All rights reserved.{" "}
+        A derivative of{" "}
+        <Link
+          target="_blank"
+          href="https://www.zimoluo.me/"
+          className="hover:underline underline-offset-2"
+        >
+          Zimo&nbsp;Web
+        </Link>
+        .
+      </p>
+      <p>
         <Link
           target="_blank"
           href="https://github.com/zimoluo/christmas-tree"
