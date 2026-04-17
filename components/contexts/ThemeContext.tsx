@@ -1,9 +1,10 @@
 "use client";
 
-import { createContext, useState, useContext, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
 import { useSettings } from "./SettingsContext";
 import { defaultSettings } from "@/lib/constants/defaultSettings";
 import { themeKeyMap } from "../theme/util/themeKeyMap";
+import { useNavigation } from "@/lib/helperHooks";
 
 interface Props {
   children?: ReactNode;
@@ -13,14 +14,18 @@ interface Props {
 interface ThemeContextType {
   themeConfig: ThemeDataConfig;
   themeKey: ThemeKey;
-  setThemeKey: React.Dispatch<React.SetStateAction<ThemeKey>>;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children, defaultThemeKey = "home" }: Props) {
-  const [themeKey, setThemeKey] = useState<ThemeKey>(defaultThemeKey);
-  const { updateSettings } = useSettings();
+export function ThemeProvider({
+  children,
+  defaultThemeKey = "eventideFestive",
+}: Props) {
+  const { updateSettings, settings } = useSettings();
+  const navigationKey = useNavigation();
+
+  const themeKey = settings.pageTheme[navigationKey] || defaultThemeKey;
 
   const safelyLoadTheme = (): ThemeDataConfig => {
     updateSettings({ pageTheme: defaultSettings.pageTheme });
@@ -35,7 +40,7 @@ export function ThemeProvider({ children, defaultThemeKey = "home" }: Props) {
   const themeConfig = themeKeyMap[themeKey] || safelyLoadTheme();
 
   return (
-    <ThemeContext.Provider value={{ themeConfig, themeKey, setThemeKey }}>
+    <ThemeContext.Provider value={{ themeConfig, themeKey }}>
       {children}
     </ThemeContext.Provider>
   );
