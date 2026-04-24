@@ -1,6 +1,6 @@
 {
   "name": "christmas-tree",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -15,7 +15,7 @@
     "next": "16.2.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "sass": "^1.96.0"
+    "sass": "^1.99.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.21",
